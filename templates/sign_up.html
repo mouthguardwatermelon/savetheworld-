@@ -7,29 +7,37 @@
       crossorigin="anonymous">
   </head>
   <body>
-    <div class="container mt-5">
-      <h1>Sign Up</h1>
-      <form method="POST">
-        <div class="form-group">
-          <label for="username">Username</label>
-          <input type="text" class="form-control" id="username" name="username" placeholder="Enter username" required>
-        </div>
+    <div class="d-flex align-items-center justify-content-center" style="height: 100vh;">
+      <div class="container">
+        <h1 class="text-center">Sign Up</h1>
+        <form method="POST">
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" id="username" name="username" placeholder="Enter username" required>
+          </div>
 
-        <div class="form-group">
-          <label for="email">Email address</label>
-          <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" required>
-        </div>
+          <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" required>
+          </div>
 
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
-        </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+          </div>
 
-        <button type="submit" class="btn btn-primary">Sign Up</button>
-      </form>
-      {% if message %}
-        <p>{{message}}</p>
-      {% endif %}
+          <button type="submit" class="btn btn-primary">Sign Up</button>
+        </form>
+        
+        <div class="mt-4">
+          {% if message %}
+            <p>{{message}}</p>
+          {% endif %}
+          {% if email_message %}
+            <p>{{email_message}}</p>
+          {% endif %}
+        </div>
+      </div>
     </div>
   </body>
 </html>

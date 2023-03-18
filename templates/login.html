@@ -8,32 +8,40 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <!-- Latest compiled JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background-color: black;
+      color: white;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+    .container {
+      max-width: 400px;
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
 
-  <div class="d-flex align-items-center justify-content-center" style="height: 100vh;">
-    <div class="container">
-      <h1>Welcome Back</h1>
-      <form method="POST">
-        <div class="form-group">
-          <label for="username">Username</label>
-          <input type="text" class="form-control" id="username" name="username" placeholder="Enter username" required>
-        </div>
-  
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input type="password" name="password" class="form-control" id="password" placeholder="Enter password" required>
-        </div>
-        
-        <button type="submit" class="btn btn-primary">Log In</button>
-      </form>
-    </div>
-  </div>
-  
-  
-    <br>
-    <br>
+  <div class="container">
+    <h1 class="mt-5 mb-4">Welcome Back</h1> <!-- add margin top and bottom for better spacing -->
+    <form method="POST">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" class="form-control" id="username" name="username" placeholder="Enter username" required>
+      </div>
 
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" name="password" class="form-control" id="password" placeholder="Enter password" required>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Log In</button>
+    </form>
+  </div>
 
 </body>
 </html>

@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, abort
 
 app = Flask(__name__)
 
@@ -20,6 +20,7 @@ def sign_up():
             lines = contents.split(" ")
             lines = [line for line in lines if line]
             if username in lines:
+                abort(409)
                 message = "Username already has been taken!"
             else:
                 f.write(f"{username} ")
@@ -34,12 +35,14 @@ def sign_up():
             emails = contents.split(" ")
             emails = [line for line in emails if line]
             if email in emails:
+                abort(409)
                 email_message = "Email has already been registered"
             else:
                 i.write(f"{email} ")
                 i.seek(0)  # Reset cursor position to the beginning of the file
         if username not in lines and email not in emails:
             message = "Sign up successful!"
+            return render_template("login.html" ,username =username, password = password)
     return render_template('sign_up.html', username=username, password=password, email=email, message=message, email_message=email_message)
 
 @app.route('/login', methods=['GET', 'POST'])
