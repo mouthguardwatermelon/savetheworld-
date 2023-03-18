@@ -1,34 +1,59 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Login Form</title>
-  <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <!-- jQuery library -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <!-- Latest compiled JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<title>My Portfolio</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
+	<div class ="header">
+		<p><a class = 'img' href="{{ url_for('login') }}">Login</a></p>
+        <p><a class = 'img' href ="{{ url_for('sign_up') }}">Sign up</a></p>
+	</div>
+	<br><br><br>
+	<section class="content">
+		<h2>About me</h2>
+		<p>My name is R Mukilan and I am from St Joseph's Insituition. Currently I am in ASRJC's badminton team. I am from class 24/11. I took Computing because I have always had an interest in computing and wanted to pursue it at a higher level. I enjoy playing computer games such as Valorant and Fortnite. </p>
+	</section>
+	<br>
+	<section class="content">
+		<h2>My work</h2>
+		<p>My work in the field of computing can be found <a target ="_blank" href="https://github.com/mouthguardwatermelon">here.</a> My projects consist of two things:</p>
+        <br>
+		<ul>
+            <li>Hangman game coded using Python</li>
+            <li>This website coded using HTML,  and CSS</li>
+        </ul>
+	</section>
+	<br>
+	<section class="content">
+		<h2>Contact me</h2>
+		<p>To get in touch with me, please fill out the form! I will try to contact you when I am free! </p>
+    <form method = "post">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name"><br><br>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email"><br><br>
+    <input type="submit" value="Submit">
+  </form>
+	</section>
+	<br><br><br><br><br><br>
+	<div class = "footer">
+		
+		<br>
+		<a class = "img" target ="_blank" href = "https://www.instagram.com/m.ukilan/" target="blank">
+		<img src ="data:image/png;base64,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" width = 30 height = 30>
+		</a>
+		&nbsp;
+		<a class = "img" target ="_blank" href = "https://twitter.com/pedophileslaye1">
+		<img src ="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAbFBMVEUAAAD///9bW1urq6uAgIDV1dXS0tJiYmL39/fHx8fi4uKioqLZ2dno6Ojc3NzDw8O8vLyYmJi2trZHR0cgICCNjY2xsbE4ODh2dnaPj4/v7+8XFxdMTEwyMjIJCQlWVlZpaWl8fHwoKChwcHAFP19cAAADdklEQVR4nO3dbVPiMBiFYUsRgYJQ3lERlP//H92dcXeWoUifNPuck8y5P/mJySUokKTpwwOu1fa466/3+7quqz+VZfn35/q7qgccZFjvy3M9m0yLtlXoAds6VYOX1rbkhKv1oxGXlPD1YxDCS0Z4KK2vzcSEZTDvVyV69Pfrd/ElINyG/v2lItwNOwKLDZrwc1VXH7tw1h3ILRxFABYLtOKHYjyD1MJNFCCxcB0HWMzRkFu9RQLyCsM/iCYijPBG+N0MTWluGw1YjNCW5uK8URALl/GApMKITyGn8DMisBigNU3tsxe2nwxNVBjxrYJUGPVFWjyiOQ0FTfymJHztPDXDLjxFBTIK67jCZ7TnuiizM9TCce7CVbTvvqzCmN8rfjdGg67qRRZO0aCrdtkLY80i8go7zEENm+L7T2Nf8J1U5y161Jask/njI3rE1hY24PQVPWBzc5vwhB6vPds82wt6uAHZPnjzrp3dzrb3Yo8ebkA24Qk93IBsszRL9HADmpiEB/RwA7IJP9HDDejZJFyhhxuQTZjeJxrrNE3+wnf0cAOSUEL+bMuj+QvRow3JJByiRxuShBLyZxKmOE0j4WV8ixItklBC/kxCviXsFkmYjvDQa+xo2mwyPTY/yr8PCBN2vPi1/S8heyHu+kMvIW51ykvYz174lL0Qt/7mJcSt3XgJYUAvIfA7spMQ+LnOSQi8dM1JCNxw4yQEHsDjJFxnL9xlLwTuPnUSArcUOQmBS6hOQhzQSYhcnPIRIifjfITI65x9hMiTTXyEyH3gPkLkuZA+QtxMm5cQN9PmJXzLXoi8qM1FOETudHcRTpF7F12E0BVUF+EkeyH0ODoXIfSoaxchcKbNSXhOXzhobjQazeabage9pObw1Fgv/11fpustJKRMQgn5Mwmp9ybeSkIJ+ZNQQv5MJw5ISJmEEvIn4UV8hyK2SEIJ+ZNQQv5M57VJSJmEEvJnEkJ3IoQmoYT8SSghf6azoCWkTEIJ+ZPwIsIb491PQgn5kzB9oekuLBJSJqGE/El4EeON0+8moYT8SSghfxJKyJ9JCDzZMjwJ0xea7gcsIWUSSsifhBLyl79wJqGE9EkoIX8SXgQ9Uy+0/IVzCSWkT0IJ+ZNQQv4klJA/CSXkT8KL5ujRhrSQUEL6JJSQv/yF+b/jf2zK1m3+943jvgB+FlCWC4XCKgAAAABJRU5ErkJggg==" width ="30px" height="30px">
+		</a>	
+		&nbsp;
+		<a class="img" target ="_blank" href="https://www.facebook.com/profile.php?id=100011742694987">
+		<img src ="data:image/png;base64,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" width ="30" height="30">
+		</a>
+		
+	</div>
 
-  <div class="container">
-    <h1>Login</h1>
-    <form method = 'POST'>
-      <div class="form-group">
-        <label for="username">Username</label>
-        <input type="text" class="form-control" id="username" name = 'username' placeholder="Enter username" required>
-      </div>
-
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" name = 'password' class="form-control" id="password" placeholder="Enter password" required>
-      </div>
-
-      <button type="submit" class="btn btn-primary">Log In</button>
-    </form>
-    <br>
-    <br>
-
-
+	
 </body>
-</html>
+</html> 
